@@ -1,0 +1,18 @@
+<%= form_with model: @student do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :major %>
+    <%= f.text_field :major %>
+    <%= f.label :instructor %>
+    <%= f.collection_select :instructor_id, @instructors, :id, :name %>
+    <%= f.label :age %>
+    <%= f.number_field :age %>
+    <%= f.submit %>
+<% end %>
+
+<br>
+<br>
+<% if flash[:message] %>
+<h4 style="color:red"><%= flash[:message]%></h4>
+<%= flash[:message]=nil%>
+<% end %>
